@@ -3,11 +3,17 @@
 namespace Database\Seeders;
 
 use App\Models\Transition;
+use Domain\Transition\Service\TokenGenerator\TokenGeneratorInterface;
 use Faker\Factory;
+use Hashids\HashidsInterface;
 use Illuminate\Database\Seeder;
 
 class TransitionTableSeeder extends Seeder
 {
+    public function __construct(private HashidsInterface $hashids)
+    {
+    }
+
     /**
      * Run the database seeds.
      *
@@ -19,8 +25,8 @@ class TransitionTableSeeder extends Seeder
         $faker = Factory::create();
         for ($i = 0; $i < $faker->numberBetween(10, 40); $i++) {
             Transition::create([
-                'token'     => $faker->url,
-                'long_url'    => $faker->url(),
+                'token'     =>  $this->hashids->encode($i + $faker->unixTime),
+                'long_url'    => $faker->imageUrl,
                 'clicks' => $faker->numberBetween(1, 100)
             ]);
         }
