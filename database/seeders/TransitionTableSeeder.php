@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Transition;
-use Domain\Transition\Service\TokenGenerator\TokenGeneratorInterface;
+use App\Transition\Models\Transition;
 use Faker\Factory;
 use Hashids\HashidsInterface;
 use Illuminate\Database\Seeder;

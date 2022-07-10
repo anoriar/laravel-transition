@@ -3,9 +3,9 @@
 namespace App\Transition\Repository;
 
 use App\Transition\Mapper\TransitionMapper;
-use Domain\Transition\Repository\TransitionRepositoryInterface;
+use App\Transition\Models\Transition as TransitionModel;
 use Domain\Transition\Entity\Transition;
-use App\Models\Transition as TransitionModel;
+use Domain\Transition\Repository\TransitionRepositoryInterface;
 
 class TransitionRepository implements TransitionRepositoryInterface
 {

@@ -2,8 +2,8 @@
 
 namespace App\Transition\Mapper;
 
+use App\Transition\Models\Transition as TransitionModel;
 use Domain\Transition\Entity\Transition;
-use App\Models\Transition as TransitionModel;
 
 class TransitionMapper
 {

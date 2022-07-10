@@ -2,6 +2,7 @@
 
 namespace App\Transition\Service\TokenGenerator;
 
+use DateTimeImmutable;
 use Domain\Transition\Service\TokenGenerator\TokenGeneratorInterface;
 use Hashids\HashidsInterface;
 
@@ -13,6 +14,7 @@ class HashIdsTokenGenerator implements TokenGeneratorInterface
 
     public function generateToken(string $longUrl): string
     {
-        return $this->hashIds->encode(intval($longUrl, 36));
+        $curDatetime = new DateTimeImmutable();
+        return $this->hashIds->encode(crc32($longUrl), $curDatetime->getTimestamp());
     }
 }
