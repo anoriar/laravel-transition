@@ -1,0 +1,18 @@
+type Query {
+    transition(id: ID @eq): Transition @find
+    transitions: [Transition!]! @all
+}
+
+type Transition {
+    id: ID!
+    long_url: String!
+    token: String!
+    clicks: Int!
+}
+
+type Mutation {
+  generateShortUrl
+  (
+    long_url: String!
+  ): String @field(resolver: "GenerateShortUrlMutator@resolve")
+}
