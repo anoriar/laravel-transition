@@ -12,7 +12,7 @@ class GenerateTransitionHandler
     {
     }
 
-    public function execute(GenerateTransitionCommand $command): string
+    public function handle(GenerateTransitionCommand $command): string
     {
 
         if ($this->transitionRepository->findTransitionByLongUrl($command->getLongUrl())) {

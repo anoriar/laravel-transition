@@ -18,6 +18,6 @@ class GenerateShortUrlMutator
     public function resolve($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
     {
         $command = new GenerateTransitionCommand(Arr::first(Arr::only($args, ['long_url'])));
-        return $this->generateTransitionHandler->execute($command);
+        return $this->generateTransitionHandler->handle($command);
     }
 }
